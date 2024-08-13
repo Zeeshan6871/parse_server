@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import Footer from "../components/Footer";
 import Homepagecards from "../components/HomepageCards";
 import HomepageCorousal from "../components/HomepageCorousal";
 import MainNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { useEffect, useState } from "react";
-import { fetchData, fetchDataById } from "../sevices/services";
+import { fetchData } from "../sevices/services";
 
 export function Homepage() {
   const [data, setData] = useState([]);

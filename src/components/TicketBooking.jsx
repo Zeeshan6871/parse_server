@@ -18,7 +18,7 @@ function TicketBooking({data}) {
     const totalStudentPrice = studentCount * studentPrice;
     const totalPWdPrice = PWdCount * PWdPrice;
     setTotal(totalGeneralPrice + totalStudentPrice + totalPWdPrice);
-  }, [generalCount, studentCount, PWdCount]);
+  }, [generalCount, studentCount, PWdCount, generalPrice, studentPrice, PWdPrice]);
 
   const checkCondition = () => {
     let totalTicket = generalCount + studentCount + PWdCount;

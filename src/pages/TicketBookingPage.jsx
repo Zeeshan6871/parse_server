@@ -1,11 +1,9 @@
-import { Container } from "react-bootstrap";
-import Homepagecards from "../components/HomepageCards";
-import HomepageCorousal from "../components/HomepageCorousal";
-import MainNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import { fetchData, fetchDataById } from "../sevices/services";
+import { Container } from "react-bootstrap";
+import Footer from "../components/Footer";
+import MainNavbar from "../components/Navbar";
 import TicketBooking from "../components/TicketBooking";
+import { fetchDataById } from "../sevices/services";
 
 export function TicketBookingPage() {
 
@@ -20,7 +18,7 @@ export function TicketBookingPage() {
             setData(data.toJSON());
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     // console.log(data);
     
