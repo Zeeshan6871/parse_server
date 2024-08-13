@@ -5,11 +5,13 @@ import Homepagecards from "../components/HomepageCards";
 import HomepageCorousal from "../components/HomepageCorousal";
 import MainNavbar from "../components/Navbar";
 import { fetchData } from "../sevices/services";
+import { useNavigate } from "react-router-dom";
 
 export function Homepage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -52,7 +54,7 @@ export function Homepage() {
   const handleEvent = async(id) => {
     // const data =  await fetchDataById(id);
 
-    return window.location.href = `/ticketbooking/${id}`
+    return navigate(`/ticketbooking/${id}`)
     
   }
 
