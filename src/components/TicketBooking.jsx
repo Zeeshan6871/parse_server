@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { couponData } from "../sevices/services";
 
-function TicketBooking({data}) {
-  const generalPrice = data?.ticket_types?.Ordinær|| 0;
+function TicketBooking({ data }) {
+  const generalPrice = data?.ticket_types?.Ordinær || 0;
   const studentPrice = data?.ticket_types?.["Student & U18"] || 0;
   const PWdPrice = data?.ticket_types?.Ledsager || 0;
-  const date = new Date(data.date?.iso).toDateString()
+  const date = new Date(data.date?.iso).toDateString();
 
   const [generalCount, setGeneralCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
   const [PWdCount, setPWdCount] = useState(0);
+  const [coupon, setCoupon] = useState("");
+  const [couponRes, setCouponRes] = useState({});
 
   const [total, setTotal] = useState(0);
 
@@ -18,24 +21,42 @@ function TicketBooking({data}) {
     const totalStudentPrice = studentCount * studentPrice;
     const totalPWdPrice = PWdCount * PWdPrice;
     setTotal(totalGeneralPrice + totalStudentPrice + totalPWdPrice);
-  }, [generalCount, studentCount, PWdCount, generalPrice, studentPrice, PWdPrice]);
+  }, [
+    generalCount,
+    studentCount,
+    PWdCount,
+    generalPrice,
+    studentPrice,
+    PWdPrice,
+  ]);
 
   const checkCondition = () => {
     let totalTicket = generalCount + studentCount + PWdCount;
     return totalTicket <= 29;
   };
 
+  const handleCoupon = (e) => {
+    setCoupon(e.target.value);
+  };
+
+  const handleSubmitCoupon = async (e) => {
+    e.preventDefault();
+    try {
+      const couponName = await couponData(coupon);
+      console.log(couponName.toJSON());
+      // couponName?.isActive
+      //   ?
+      setCouponRes(couponName.toJSON());
+      // : setCouponRes({});
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Container>
       <Container style={{ maxWidth: "900px" }} className="mx-auto">
-        <img
-          src={data?.cover_photo}
-          alt="img"
-          style={{ maxWidth: "100%" }}
-        />
-        <h1 className="text-center p-3">
-          {data?.title}
-        </h1>
+        <img src={data?.cover_photo} alt="img" style={{ maxWidth: "100%" }} />
+        <h1 className="text-center p-3">{data?.title}</h1>
       </Container>
       <Container>
         <div
@@ -49,7 +70,7 @@ function TicketBooking({data}) {
             <h6>🗓 Dato: {date}</h6>
             <h6>🕒 Tid: 12:30</h6>
             <h6>📍 Adresse: {data?.address}</h6>
-            
+
             <div style={{ whiteSpace: "pre-wrap" }}>
               {`${data?.description}
 `}
@@ -155,11 +176,27 @@ function TicketBooking({data}) {
             <div className="subtotal">Subtotal: {total} kr</div>
 
             <div className="coupon">
-              <input type="text" placeholder="Kupongkode" />
-              <button>Søke om</button>
+              <input
+                type="text"
+                placeholder="Kupongkode"
+                onChange={handleCoupon}
+              />
+              <button onClick={handleSubmitCoupon}>Søke om</button>
             </div>
+            {couponRes?.amount && couponRes?.amount && (
+              <div className="coupon">
+                Congrats 🤑 you save :{" "}
+                {couponRes.amount * (generalCount + studentCount)} kr
+              </div>
+            )}
 
-            <div className="total">Total: {total} kr</div>
+            <div className="total">
+              Total:{" "}
+              {couponRes?.amount && couponRes?.amount
+                ? total - couponRes.amount * (generalCount + studentCount)
+                : total}{" "}
+              kr
+            </div>
 
             <button className="buy-button" disabled={total === 0}>
               Kjøp nå
