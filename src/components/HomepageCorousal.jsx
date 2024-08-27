@@ -18,37 +18,29 @@ function HomepageCorousal() {
           <img
             src="https://mintix.s3.eu-north-1.amazonaws.com/David+Andre%CC%81+%C3%98stby+Trune%CC%81+Banner+(1600+%C3%97+900+px).png"
             width={"100%"}
+            alt="First slide"
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           {/* <ExampleCarouselImage text="Second slide" /> */}
           <img
             src="https://mintix.s3.eu-north-1.amazonaws.com/David+Andre%CC%81+%C3%98stby+Trune%CC%81+Banner+(1600+%C3%97+900+px).png"
             width={"100%"}
+            alt="Second slide"
           />
 
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             src="https://mintix.s3.eu-north-1.amazonaws.com/David+Andre%CC%81+%C3%98stby+Trune%CC%81+Banner+(1600+%C3%97+900+px).png"
             width={"100%"}
+            alt="Third slide"
           />
 
           {/* <ExampleCarouselImage text="Third slide" /> */}
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </Container>

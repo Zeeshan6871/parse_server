@@ -32,7 +32,13 @@ function MainNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand onClick={() => navigate("/")}>Mintix</Navbar.Brand>
+        <Navbar.Brand className="cursor-pointer" onClick={() => navigate("/")}>
+          {" "}
+          <img
+            src="https://test.mintix.no/static/media/logo.ae7f1a1fda88fa9b502e6ae0ca936313.svg"
+            alt="logo"
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
