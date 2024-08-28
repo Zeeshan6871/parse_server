@@ -30,18 +30,26 @@ function MainNavbar() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary teko-font">
+    <Navbar expand="lg" className="bg-body-tertiary ">
       <Container>
-        <Navbar.Brand className="cursor-pointer" onClick={() => navigate("/")}>
+        <Navbar.Brand className="d-flex align-items-center gap-4">
           {" "}
           <img
+            className="cursor-pointer"
             src="https://test.mintix.no/static/media/logo.ae7f1a1fda88fa9b502e6ae0ca936313.svg"
             alt="logo"
+            onClick={() => navigate("/")}
           />
+          <div
+            className=" fs-5 cursor-pointer"
+            onClick={() => navigate("/about")}
+          >
+            What is Mintix
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto ">
+          <Nav className="ms-auto fw-bold fs-5 color-primary">
             {username ? (
               <NavDropdown title={username} id="basic-nav-dropdown">
                 {/* <NavDropdown.Item href="#action/3.1">
@@ -57,10 +65,7 @@ function MainNavbar() {
                 </NavDropdown.Item> */}
               </NavDropdown>
             ) : (
-              <Nav.Link
-                className="teko-font"
-                onClick={() => navigate("/login")}
-              >
+              <Nav.Link onClick={() => navigate("/login")}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

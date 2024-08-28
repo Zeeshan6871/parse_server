@@ -5,6 +5,7 @@ import { TicketBookingPage } from "./pages/TicketBookingPage";
 import Signuppage from "./pages/Signuppage";
 import Loginpage from "./pages/Loginpage";
 import PrivateRoute from "./routes/authRoute";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         />
         <Route path="/signup" element={<Signuppage />} />
         <Route path="/login" element={<Loginpage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   );
