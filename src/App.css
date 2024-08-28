@@ -1,4 +1,4 @@
-/* :root {
+:root {
   --primary: #6d767d;
   --secondary: #dadfe3;
   --background: #fdfaf3;
@@ -14,25 +14,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.nav-pills .nav-link.active {
+  background-color: var(--primary) !important;
+  color: #fff;
 }
 
-@font-face {
-  font-family: "AmsiPro";
-  src: url("./fonts/AmsiPro-Bold.otf") format("opentype");
-  font-weight: bold;
+.nav-pills .nav-link {
+  color: #000;
 }
-
-@font-face {
-  font-family: "AmsiPro";
-  src: url("./fonts/AmsiPro-Regular.otf") format("opentype");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "AmsiPro";
-  src: url("./fonts/AmsiPro-Light.otf") format("opentype");
-  font-weight: lighter;
-} */

@@ -52,9 +52,9 @@ function MainNavbar() {
           <Nav className="ms-auto fw-bold fs-5 color-primary">
             {username ? (
               <NavDropdown title={username} id="basic-nav-dropdown">
-                {/* <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item onClick={() => navigate("/mytickets")}>
                   My tickets
-                </NavDropdown.Item> */}
+                </NavDropdown.Item>
                 {/* <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item> */}
                 <NavDropdown.Item onClick={handleLogout}>
                   Logout
