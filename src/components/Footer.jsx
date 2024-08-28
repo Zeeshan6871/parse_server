@@ -1,43 +1,7 @@
 import React from "react";
-// import { FaFacebookSquare } from "react-icons/fa";
-// import { RiInstagramFill } from "react-icons/ri";
 
 function Footer() {
   return (
-    // <footer
-    //   classNameName="text-center text-lg-start "
-    //   style={{ backgroundColor: "#dbdfe3", padding: "70px" }}
-    // >
-    //   <div classNameName="container d-flex justify-content-center">
-    //     <h1>Mintix</h1>
-    //   </div>
-    //   {/* Section: Social media */}
-    //   <div classNameName="container d-flex justify-content-center py-4 gap-3">
-    //     <FaFacebookSquare style={{ height: "30px", width: "30px" }} />
-    //     {/* <button
-    //         type="button"
-    //         classNameName="btn btn-primary btn-lg btn-floating mx-2"
-    //         style={{ backgroundColor: "#54456b" }}
-    //       >
-    //       </button>
-    //       <button
-    //         type="button"
-    //         classNameName="btn btn-primary btn-lg btn-floating mx-2"
-    //         style={{ backgroundColor: "#54456b" }}
-    //       >
-    //       </button> */}
-    //     <RiInstagramFill style={{ height: "30px", width: "30px" }} />
-    //   </div>
-
-    //   {/* Copyright */}
-    //   <div
-    //     classNameName="text-center"
-    //     //   style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-    //   >
-    //     ©2024 Mintix Norge. Alle rettigheter forbeholdt.
-    //   </div>
-    //   {/* End of Copyright */}
-    // </footer>
     <div className="bg-footer mt-5">
       <div className="footer py-5">
         <img

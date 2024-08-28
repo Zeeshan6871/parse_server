@@ -10,6 +10,7 @@ const signUp = async (username, email, password) => {
     return user.toJSON();
   } catch (err) {
     console.log(err);
+    throw new Error(err);
   }
 };
 

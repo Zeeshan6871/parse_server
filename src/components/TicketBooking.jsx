@@ -73,12 +73,12 @@ function TicketBooking({ data }) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-calendar"
                 viewBox="0 0 16 16"
               >
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
               </svg>{" "}
-              Dato: {date}
+              <b>Date:</b>
+              <i>{date}</i>
             </h6>
             <h6>
               <svg
@@ -86,13 +86,13 @@ function TicketBooking({ data }) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-clock"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
               </svg>{" "}
-              Tid: 12:30
+              <b>Time:</b>
+              <i>12:30</i>
             </h6>
             <h6>
               <svg
@@ -100,12 +100,12 @@ function TicketBooking({ data }) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-geo-alt-fill"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
               </svg>{" "}
-              Adresse: {data?.address}
+              <b>Address:</b>
+              <i>{data?.address}</i>
             </h6>
 
             <div style={{ whiteSpace: "pre-wrap" }}>
@@ -114,15 +114,17 @@ function TicketBooking({ data }) {
             </div>
           </div>
           <div className="Bookingcontainer">
-            <h3>Velg billetter (maks. 30)</h3>
+            <h3>Select tickets (max. 30)</h3>
             <p>
-              Nedenfor finner du ledige billetter til dette arrangementet. Velg
-              antall billetter du ønsker og klikk Kjøp nå. Du har 15 minutter på
-              deg til å fullføre bestillingen.
+              Below you will find available tickets for this event. Select
+              number of tickets you want and click Buy now. You have 15 minutes
+              you to complete the order.
             </p>
 
             <div className="ticket-option">
-              <span>Ordinær ({generalPrice} NOK)</span>
+              <span>
+                Ordinær <br />({generalPrice} NOK)
+              </span>
               <div>
                 <button
                   onClick={() =>
@@ -152,7 +154,9 @@ function TicketBooking({ data }) {
               </div>
             </div>
             <div className="ticket-option">
-              <span>Student & U18 ({studentPrice} NOK)</span>
+              <span>
+                Student & U18 <br /> ({studentPrice} NOK)
+              </span>
               <div>
                 <button
                   onClick={() =>
@@ -182,7 +186,9 @@ function TicketBooking({ data }) {
               </div>
             </div>
             <div className="ticket-option">
-              <span>Ledsager ({PWdPrice} NOK)</span>
+              <span>
+                Ledsager <br /> ({PWdPrice} NOK)
+              </span>
               <div>
                 <button
                   onClick={() =>
@@ -215,10 +221,13 @@ function TicketBooking({ data }) {
             <div className="coupon">
               <input
                 type="text"
-                placeholder="Kupongkode"
+                placeholder="Coupon Code"
                 onChange={handleCoupon}
+                value={coupon}
               />
-              <button onClick={handleSubmitCoupon}>Søke om</button>
+              <button onClick={handleSubmitCoupon} disabled={coupon === ""}>
+                Apply
+              </button>
             </div>
             {couponRes?.amount && couponRes?.amount && (
               <div className="coupon">
@@ -236,7 +245,7 @@ function TicketBooking({ data }) {
             </div>
 
             <button className="buy-button" disabled={total === 0}>
-              Kjøp nå
+              Buy Now
             </button>
           </div>
         </div>

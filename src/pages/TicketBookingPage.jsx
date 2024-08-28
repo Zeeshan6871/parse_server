@@ -4,11 +4,16 @@ import Footer from "../components/Footer";
 import MainNavbar from "../components/Navbar";
 import TicketBooking from "../components/TicketBooking";
 import { fetchDataById } from "../sevices/services";
+import { useParams } from "react-router-dom";
 
 export function TicketBookingPage() {
-  const id = window.location.pathname.split("/")[2];
+  const { id } = useParams();
 
   const [data, setData] = useState({});
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {

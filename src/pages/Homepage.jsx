@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { fetchData } from "../sevices/services";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Homepagecards from "../components/HomepageCards";
 import HomepageCorousal from "../components/HomepageCorousal";
 import MainNavbar from "../components/Navbar";
-import { fetchData } from "../sevices/services";
-import { useNavigate } from "react-router-dom";
 
 export function Homepage() {
   const [data, setData] = useState([]);
@@ -25,11 +25,10 @@ export function Homepage() {
           updatedAt: item.get("updatedAt").toLocaleDateString(),
           cover_photo: item.get("cover_photo"),
           isLive: item.get("isLive"),
-          objectId:item.id
+          objectId: item.id,
         }));
         setData(arr);
         console.log(arr);
-        
       } catch (err) {
         setError("Failed to fetch data.");
         console.error(err);
@@ -51,12 +50,11 @@ export function Homepage() {
 
   // console.log(data);
 
-  const handleEvent = async(id) => {
+  const handleEvent = async (id) => {
     // const data =  await fetchDataById(id);
 
-    return navigate(`/ticketbooking/${id}`)
-    
-  }
+    return navigate(`/ticketbooking/${id}`);
+  };
 
   return (
     <div className="d-flex flex-column gap-3">
@@ -68,7 +66,11 @@ export function Homepage() {
             data.map((item, index) => {
               return (
                 item.isLive && (
-                  <div className="col" key={index} onClick={()=> handleEvent(item.objectId)}>
+                  <div
+                    className="col"
+                    key={index}
+                    onClick={() => handleEvent(item.objectId)}
+                  >
                     <Homepagecards
                       address={item.address}
                       title={item.title}
