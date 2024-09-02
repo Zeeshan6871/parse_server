@@ -26,8 +26,7 @@ function Loginpage() {
 
     try {
       const user = await login(username, password);
-      console.log(user);
-      return navigate("/");
+      user ? navigate("/") : alert("Invalid username or password");
     } catch (error) {
       console.log(error);
     }

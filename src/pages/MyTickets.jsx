@@ -75,7 +75,7 @@ const Tickets = () => {
             <ul className="nav nav-pills" role="tablist">
               <li className="nav-item" role="presentation">
                 <a
-                  className="nav-link active bg-[#6b757d]"
+                  className="nav-link active"
                   id="nav-upcoming"
                   data-bs-toggle="tab"
                   data-bs-target="#upcoming"

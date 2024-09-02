@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { couponData } from "../sevices/services";
+import { couponData, createBooking } from "../sevices/services";
+import { fetchUser } from "../sevices/auth";
+import { useNavigate } from "react-router-dom";
 
-function TicketBooking({ data }) {
+function TicketBooking({ data, id }) {
   const generalPrice = data?.ticket_types?.Ordinær || 0;
   const studentPrice = data?.ticket_types?.["Student & U18"] || 0;
   const PWdPrice = data?.ticket_types?.Ledsager || 0;
@@ -13,8 +15,64 @@ function TicketBooking({ data }) {
   const [PWdCount, setPWdCount] = useState(0);
   const [coupon, setCoupon] = useState("");
   const [couponRes, setCouponRes] = useState({});
+  const [ticket, setTicket] = useState({ type1: 0, type2: 0, type3: 0 });
 
   const [total, setTotal] = useState(0);
+
+  const navigate = useNavigate();
+
+  const buy = async () => {
+    const user = fetchUser();
+
+    if (user) {
+      try {
+        // const resposne = await api.getEventDetail(id);
+        const arrayofTickets = Object.values(ticket);
+
+        let amount = total;
+        let max_tickets_count = data?.max_tickets;
+        let sum = arrayofTickets.reduce((acc, cur) => acc + cur, 0);
+        let total_tickets = max_tickets_count - sum;
+
+        //creating new Booking
+        const res = await createBooking(id, amount, coupon.code);
+        let bookingId = res?.id;
+
+        let booking_details = {
+          eventId: id,
+          totalTickets: total_tickets,
+          ticketSoldOut: sum,
+          ticketTypes: ticket,
+          couponCode: coupon,
+          totalAmount: amount,
+        };
+
+        // console.log("booking_details ", booking_details);
+
+        //storing the booking details for temporary
+        let stringObj = JSON.stringify(booking_details);
+        localStorage.setItem("booking", stringObj);
+
+        if (user && bookingId) {
+          const data = {
+            email: user?.get("email"),
+            amount: amount,
+            bookingId: bookingId,
+          };
+
+          navigate("/checkout", {
+            state: data,
+          });
+        } else {
+          navigate("/login");
+        }
+      } catch (error) {
+        console.log("error ", error);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   useEffect(() => {
     const totalGeneralPrice = generalCount * generalPrice;
@@ -244,7 +302,7 @@ function TicketBooking({ data }) {
               kr
             </div>
 
-            <button className="buy-button" disabled={total === 0}>
+            <button className="buy-button" disabled={total === 0} onClick={buy}>
               Buy Now
             </button>
           </div>

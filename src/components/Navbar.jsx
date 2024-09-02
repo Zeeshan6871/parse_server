@@ -55,11 +55,14 @@ function MainNavbar() {
                 <NavDropdown.Item onClick={() => navigate("/mytickets")}>
                   My tickets
                 </NavDropdown.Item>
-                {/* <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item> */}
+                <NavDropdown.Item onClick={() => navigate("/profile")}>
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>
                   Logout
                 </NavDropdown.Item>
-                {/* <NavDropdown.Divider />
+                {/*
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
                 </NavDropdown.Item> */}
