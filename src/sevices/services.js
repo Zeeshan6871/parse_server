@@ -44,7 +44,7 @@ export const getBookings = async () => {
     return [];
   }
 
-  console.log(user);
+  // console.log(user);
   query.equalTo("userId", user);
   return query.find();
 };

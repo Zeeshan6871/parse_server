@@ -23,7 +23,7 @@ const Profile = () => {
 
   return (
     <div>
-      <table class="table table-borderless">
+      <table className="table table-borderless">
         <tbody>
           <tr>
             <td className="fw-bolder" aria-placeholder="name">

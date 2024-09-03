@@ -210,10 +210,10 @@ const EditProfile = forwardRef((props, ref) => {
             Sex
           </label>
           <div className="d-flex justify-content-around">
-            <div class="form-check">
+            <div className="form-check">
               <input
                 name="gender"
-                class="form-check-input"
+                className="form-check-input"
                 value="Male"
                 type="radio"
                 id="flexRadioDefault2"
@@ -221,43 +221,43 @@ const EditProfile = forwardRef((props, ref) => {
                 checked={profile?.gender === "Male"}
               />
               <label
-                class="form-check-label"
+                className="form-check-label"
                 for="flexRadioDefault2"
                 aria-placeholder="Male"
               >
                 Male
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
                 name="gender"
                 value="Female"
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 id="flexRadioDefault1"
                 onChange={handleProfile}
                 checked={profile?.gender === "Female"}
               />
               <label
-                class="form-check-label"
+                className="form-check-label"
                 for="flexRadioDefault1"
                 aria-placeholder="Female"
               >
                 Female
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
                 name="gender"
                 value="other"
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 id="flexRadioDefault1"
                 onChange={handleProfile}
                 checked={profile?.gender === "other"}
               />
               <label
-                class="form-check-label"
+                className="form-check-label"
                 for="flexRadioDefault1"
                 aria-placeholder="other"
               >

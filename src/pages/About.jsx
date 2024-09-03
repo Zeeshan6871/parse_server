@@ -54,7 +54,7 @@ const About = () => {
               <li>Telefon: +47 921 57 656</li>
               <li>
                 E-post:{" "}
-                <a href="sondre@mintix.no" class="text-reset">
+                <a href="sondre@mintix.no" className="text-reset">
                   sondre@mintix.no
                 </a>
               </li>

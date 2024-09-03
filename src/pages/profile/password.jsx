@@ -79,10 +79,10 @@ const Password = forwardRef((props, ref) => {
   return (
     <div className="my-2">
       <form action="" className="needs-validation">
-        <div class="col-12 mb-3">
+        <div className="col-12 mb-3">
           <label
-            for="oldPassword"
-            class="form-label fw-bold"
+            htmlFor="oldPassword"
+            className="form-label fw-bold"
             aria-placeholder="oldpassword"
           >
             Old Password
@@ -92,7 +92,7 @@ const Password = forwardRef((props, ref) => {
               type="password"
               name="oldPassword"
               value={password?.oldPassword || ""}
-              class="form-control w-100 my-2"
+              className="form-control w-100 my-2"
               id="oldPassword"
               onChange={handlePassword}
               required
@@ -102,7 +102,7 @@ const Password = forwardRef((props, ref) => {
               style={{ cursor: "pointer" }}
             >
               <i
-                class="bi bi-eye"
+                className="bi bi-eye"
                 onClick={() => handleShowHidePassword("oldPassword")}
               ></i>
             </span>
@@ -112,10 +112,10 @@ const Password = forwardRef((props, ref) => {
         )} */}
         </div>
 
-        <div class="col-12 mb-3">
+        <div className="col-12 mb-3">
           <label
-            for="newPassword"
-            class="form-label fw-bold"
+            htmlFor="newPassword"
+            className="form-label fw-bold"
             aria-placeholder="newpassword"
           >
             New Password
@@ -124,7 +124,7 @@ const Password = forwardRef((props, ref) => {
             <input
               type="password"
               name="newPassword"
-              class="form-control my-2"
+              className="form-control my-2"
               id="newPassword"
               value={password?.newPassword || ""}
               onChange={handlePassword}
@@ -135,7 +135,7 @@ const Password = forwardRef((props, ref) => {
               style={{ cursor: "pointer" }}
             >
               <i
-                class="bi bi-eye"
+                className="bi bi-eye"
                 onClick={() => handleShowHidePassword("newPassword")}
               ></i>
             </span>
@@ -145,10 +145,10 @@ const Password = forwardRef((props, ref) => {
           <p className="text-danger">{error?.newPassword}</p>
         )}
 
-        <div class="col-12 mb-3">
+        <div className="col-12 mb-3">
           <label
-            for="confirmPassword"
-            class="form-label fw-bold"
+            htmlFor="confirmPassword"
+            className="form-label fw-bold"
             aria-placeholder="confirmpassword"
           >
             Confirm Password
@@ -157,7 +157,7 @@ const Password = forwardRef((props, ref) => {
             <input
               type="text"
               name="confirmPassword"
-              class="form-control my-2"
+              className="form-control my-2"
               id="confirmPassword"
               value={password?.confirmPassword || ""}
               onChange={handlePassword}

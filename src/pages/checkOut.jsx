@@ -9,7 +9,7 @@ import { createCheckout } from "../sevices/stripe";
 
 const STRIPE_KEY = process.env.REACT_APP_STRIPE_TEST_API_KEY;
 
-console.log(STRIPE_KEY);
+// console.log(STRIPE_KEY);
 
 const stripePromise = loadStripe(STRIPE_KEY);
 
@@ -26,7 +26,7 @@ const Checkout = (props) => {
   }, [amount, email, bookingId]);
 
   return (
-    <div class="container py-5">
+    <div className="container py-5">
       {clientSecret && (
         <EmbeddedCheckoutProvider
           stripe={stripePromise}

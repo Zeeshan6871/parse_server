@@ -28,7 +28,7 @@ export function Homepage() {
           objectId: item.id,
         }));
         setData(arr);
-        console.log(arr);
+        // console.log(arr);
       } catch (err) {
         setError("Failed to fetch data.");
         console.error(err);
@@ -46,7 +46,7 @@ export function Homepage() {
         className="d-flex align-items-center justify-content-center "
         style={{ height: "100vh" }}
       >
-        <div class="spinner-border text-dark" role="status">
+        <div className="spinner-border text-dark" role="status">
           {/* <span class="sr-only">Loading...</span> */}
         </div>
       </div>

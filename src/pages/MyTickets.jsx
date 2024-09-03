@@ -29,7 +29,7 @@ const Tickets = () => {
   };
 
   const RenderRow = ({ booking }) => {
-    console.log(booking?.get("eventId")?.get("title"));
+    // console.log(booking?.get("eventId")?.get("title"));
     return (
       <tr>
         <td className="col-2">

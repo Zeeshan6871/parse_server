@@ -62,23 +62,23 @@ const MainProfile = () => {
   const deleteAcount = () => (
     <div>
       <div
-        class="modal fade"
+        className="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5 fw-bold" id="staticBackdropLabel">
                 Delete Account
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -96,10 +96,10 @@ const MainProfile = () => {
                 />
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
                 onClick={() => setDeleteConfirm("")}
               >
@@ -109,7 +109,7 @@ const MainProfile = () => {
               <button
                 onClick={handleDeleteAccount}
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
                 disabled={deleteConfirm !== "delete account"}
               >
@@ -121,7 +121,7 @@ const MainProfile = () => {
       </div>
       <button
         type="button"
-        class="btn  bg-danger text-white fw-bold cursor-pointer my-2 px-4 w-100"
+        className="btn  bg-danger text-white fw-bold cursor-pointer my-2 px-4 w-100"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
         aria-placeholder="deleteAccount"
@@ -133,11 +133,11 @@ const MainProfile = () => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-person-x-fill"
+            className="bi bi-person-x-fill"
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708"
             />
           </svg>
@@ -185,11 +185,11 @@ const MainProfile = () => {
             <aside>
               <div>
                 <ul
-                  class="nav nav-pills list-unstyled fw-bold d-flex flex-column"
+                  className="nav nav-pills list-unstyled fw-bold d-flex flex-column"
                   role="tablist"
                 >
                   <li
-                    class="nav-item"
+                    className="nav-item"
                     role="presentation"
                     onClick={() => {
                       setActiveTab("My account");
@@ -201,7 +201,7 @@ const MainProfile = () => {
                     }}
                   >
                     <a
-                      class="nav-link active px-3 cursor-pointer px-4 py-2 mb-2"
+                      className="nav-link active px-3 cursor-pointer px-4 py-2 mb-2"
                       id="nav-upcoming"
                       data-bs-toggle="tab"
                       data-bs-target="#upcoming"
@@ -215,7 +215,7 @@ const MainProfile = () => {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-person-fill"
+                        className="bi bi-person-fill"
                         viewBox="0 0 16 16"
                       >
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
@@ -223,9 +223,9 @@ const MainProfile = () => {
                       My Account
                     </a>
                   </li>
-                  <li class="nav-item" role="presentation">
+                  <li className="nav-item" role="presentation">
                     <a
-                      class="nav-link px-3 cursor-pointer px-1 py-2 mb-2"
+                      className="nav-link px-3 cursor-pointer px-1 py-2 mb-2"
                       id="nav-failed"
                       data-bs-toggle="tab"
                       data-bs-target="#failed"
@@ -240,9 +240,9 @@ const MainProfile = () => {
                     </a>
                   </li>
                   {role === "organizer" && (
-                    <li class="nav-item" role="presentation">
+                    <li className="nav-item" role="presentation">
                       <a
-                        class="nav-link px-3 cursor-pointer px-1 py-1 mb-2"
+                        className="nav-link px-3 cursor-pointer px-1 py-1 mb-2"
                         id="nav-failed"
                         data-bs-toggle="tab"
                         data-bs-target="#failed"
@@ -252,7 +252,7 @@ const MainProfile = () => {
                         // onClick={() => setActiveTab("Bank")}
                       >
                         <div className="d-flex justify-content-start">
-                          <i class="bi bi-bank2 mx-2 py-2"></i>
+                          <i className="bi bi-bank2 mx-2 py-2"></i>
                           <p className="d-inilne pt-2">Bank Account</p>
                         </div>
                       </a>
@@ -267,7 +267,7 @@ const MainProfile = () => {
             <div className="d-flex justify-content-between fw-bold">
               {edit && (
                 <div className="d-inline cursor d-flex" onClick={handleGoBack}>
-                  <i class="bi bi-arrow-left-circle mx-2 fs-3"></i>
+                  <i className="bi bi-arrow-left-circle mx-2 fs-3"></i>
                   <h2 className="fw-bold">Edit Account</h2>
                 </div>
               )}
