@@ -22,3 +22,7 @@ body {
 .nav-pills .nav-link {
   color: #000;
 }
+
+.nav-pills .nav-link:hover {
+  color: #000 !important;
+}

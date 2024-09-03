@@ -54,16 +54,17 @@
 .coupon input {
   flex: 1;
   padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #98a3af;
+  border-radius: 5px 0 0 5px;
+  color: white;
+  background-color: #6b757d;
+  border: 1px solid #e0e6ec;
 }
 .coupon button {
-  margin-left: 10px;
   padding: 5px 10px;
-  background-color: #98a3af;
-  color: #fff;
+  background-color: #ecf0f3;
+  color: #0e0d0d;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
 .buy-button {
@@ -103,4 +104,8 @@
   font-weight: 300;
   font-size: 20px;
   font-style: normal;
+}
+
+.palceholder-danger::placeholder {
+  color: red;
 }

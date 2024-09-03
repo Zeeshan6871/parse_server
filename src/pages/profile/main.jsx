@@ -87,7 +87,7 @@ const MainProfile = () => {
               <div>
                 <p>Enter "delete account" to confirm this action</p>
                 <input
-                  className="d-block border-2 px-2"
+                  className="d-block border-2 px-2 palceholder-danger"
                   type="text"
                   name="deleteConfirm"
                   value={deleteConfirm}
